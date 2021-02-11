@@ -20,14 +20,14 @@ class Magic_8:
     # it sets this object's answer_history_list (instance variable) to an empty list 
 
     def __str__(self):
-        return self.answer_list
+        return str(self.answer_list)
     # create the __str__ method
     # It should return a string with all the possible answers 
     # in answer_list separated by commas
     # For example : "Yes, No, Not clear"
 
     def shake_ball(self):
-        index = random.randint(0,len(answer_list)-1)
+        index = random.randint(0,len(self.answer_list)-1)
         self.answer_history_list.append(index)
         return self.answer_list[index]
     # create the shake_ball method
@@ -36,7 +36,7 @@ class Magic_8:
     # it returns the answer at the picked index
 
     def check_question(self, question):
-        for q in len(self.question_list):
+        for q in range(len(self.question_list)):
             if self.question_list[q] == question:
                 return "I already answered that question!"
         self.question_list.append(question)
@@ -47,6 +47,12 @@ class Magic_8:
     # Otherwise it adds the question to the question_list and
     # returns the answer from shake_ball
 
+    def print_history(self):
+        if len(self.answer_history_list) == 0:
+            print("None yet")
+        else:
+            for x in range(len(self.question_list)):
+              print("[" + str(x) + "] " + self.question_list[x] + " - " + self.answer_list[x])
     # create the print_history method
     # prints "[answer index] question - answer" for each of the indices in the answer_history_list
     # from the first to the last with each on a single line.  If there are not items in the 
@@ -72,14 +78,15 @@ def main():
     bot = Magic_8(answer_list)
 
     # get the first question or quit
-
+    question = input("Ask a question or type quit: ")
     # loop while question is not "quit"
-   
+    while question != "quit":
         # get an answer from check_question
-
+        answer = bot.check_question(question)
         # print question - answer
-
+        print(question + " - " + answer)
         # get the next question or quit 
+        question = input("Ask a question or type quit: ")
 
 def test():
     
@@ -121,5 +128,5 @@ def test():
 
 # only run the main function if this file is being run (not imported)
 if __name__ == "__main__":
-    main()
-    #test() - uncomment when you are ready to test your magic 8 ball
+    #main()
+    test()
