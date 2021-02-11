@@ -52,13 +52,34 @@ class Magic_8:
             print("None yet")
         else:
             for x in range(len(self.question_list)):
-              print("[" + str(x) + "] " + self.question_list[x] + " - " + self.answer_list[x])
+              print("[" + str(self.answer_history_list[x]) + "] " + self.question_list[x] + " - " + self.answer_list[self.answer_history_list[x]])
     # create the print_history method
     # prints "[answer index] question - answer" for each of the indices in the answer_history_list
     # from the first to the last with each on a single line.  If there are not items in the 
     # answer_history_list it prints "None yet"
     # it does not return anything!
-            
+
+    def generate_n_responses(self, n):
+        self.answer_history_list = []
+        for x in range(n):
+            self.shake_ball()
+        max_index = 0
+        index = self.answer_history_list[0]
+        max_run = 0
+        run = 0
+        for x in range(len(self.answer_history_list)):
+            if self.answer_history_list[x] == index:
+                run += 1
+            elif run > max_run:
+                max_run = run
+                max_index = index
+                index = self.answer_history_list[x]
+                run = 1
+            else:
+                index = self.answer_history_list[x]
+                run = 1
+        return "longest run was length of " + str(max_run) + " for index " + str(max_index)
+
     # EXTRA POINTS
     # create the generate_n_responses method
     # it takes as input:
@@ -122,11 +143,11 @@ def test():
     
     #EXTRA POINTS
     #Uncomment the lines below if you attempt the extra credit!
-    #print("Testing generate_n_responses method with 200 responses")
-    #print(bot2.generate_n_responses(200))
+    print("Testing generate_n_responses method with 200 responses")
+    print(bot2.generate_n_responses(200))
 
 
 # only run the main function if this file is being run (not imported)
 if __name__ == "__main__":
-    #main()
-    test()
+    main()
+    #test()
