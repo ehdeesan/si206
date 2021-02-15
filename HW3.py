@@ -1,6 +1,6 @@
-﻿# Your name:
-# Your student id:
-# Your email:
+﻿# Your name: Edison Chiu
+# Your student id: 52872908
+# Your email: edisonc@umich.edu
 # List who you have worked with on this homework:
 
 
