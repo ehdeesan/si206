@@ -226,7 +226,7 @@ class TestAllMethods(unittest.TestCase):
     #test if a customer can add money to their wallet
     def test_withdraw_money(self):
         self.f1.withdraw_money(100)
-        self.assertTrue(self.f1.wallet, 200)
+        self.assertEqual(self.f1.wallet, 200)
 
 
 
