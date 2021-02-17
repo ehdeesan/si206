@@ -242,7 +242,6 @@ def main():
 
     cust_1.order_food(serv_2, Asian, 'noodles', 3)
     cust_2.order_food(serv_1, American, 'fries', 5)
-    print(Asian)
 
 if __name__ == "__main__":
     main()
