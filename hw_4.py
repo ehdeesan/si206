@@ -4,7 +4,7 @@ import unittest
 ## Student ID: 52872908
 ## Your Email: edisonc@umich.edu
 ## People you worked with :
-## Github URL :
+## Github URL : https://github.com/ehdeesan/si206
 
 ### Customer Class
 class Customer:
